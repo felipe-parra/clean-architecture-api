@@ -1,12 +1,11 @@
-import { Book } from "../domain/entities/Book";
 import { CreateBook } from "../use-cases/books/CreateBook";
 import { GetAllBooks } from "../use-cases/books/GetAllBooks";
-import { InMemoryBookRepository } from "./repositories/InMemoryBookRepository";
+import { MongoBookRepository } from "./repositories/MongoBookRepository";
 
 class DIContainer {
-  private static readonly _bookRepository = new InMemoryBookRepository();
+  private static readonly _bookRepository = new MongoBookRepository();
 
-  static getBookRepository(): InMemoryBookRepository {
+  static getBookRepository(): MongoBookRepository {
     return this._bookRepository;
   }
 
