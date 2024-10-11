@@ -6,7 +6,7 @@ const router = Router();
 
 const bookController = new BookController();
 
-router.get('/', authenticateToken, (req, res) => bookController.getAll(req, res));
-router.post('/', authenticateToken, (req, res) => bookController.create(req, res));
+router.get('/', /*authenticateToken ,*/ bookController.getAll);
+router.post('/', /*authenticateToken ,*/ bookController.create);
 
 export { router as bookRoutes };
