@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { bookRoutes } from './interface/routes/bookRoutes';
 import { errorHandler } from "./interface/middleware/errorHandler";
 import { logger } from "./infrastructure/logger";
+import { setupSwagger } from "./interface/swagger";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -21,6 +22,9 @@ app.use("/api/books",bookRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT ?? 4000;
+
+// Set up Swagger documentation
+setupSwagger(app);
 
 app.listen(PORT, () => {
   // Log server startup message
