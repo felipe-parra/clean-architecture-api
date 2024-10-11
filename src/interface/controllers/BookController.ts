@@ -5,7 +5,7 @@ import { validate } from "class-validator";
 
 export class BookController{
   private readonly getAllBooks = DIContainer.getAllBooksUseCase();
-  private readonly createBook = DIContainer.createBookUseCase();
+  private createBook = DIContainer.createBookUseCase();
 
   async getAll(req:Request, res:Response){
     const books = await this.getAllBooks.execute();
